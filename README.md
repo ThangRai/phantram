@@ -33,7 +33,7 @@ Mang đến một công cụ **tính phần trăm online đơn giản, nhanh ch�
 
 ## 📸 Giao Diện Thân Thiện
 
-![Ảnh minh họa giao diện web](uploads/minhhoa.png)
+![Ảnh minh họa giao diện web](uploads/minhhoa.jpg)
 
 ---
 
