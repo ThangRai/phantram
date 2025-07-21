@@ -39,8 +39,7 @@ Mang đến một công cụ **tính phần trăm online đơn giản, nhanh ch�
 
 ## 🛠️ Công Nghệ
 
-- HTML5, Tailwind CSS, JavaScript
-- Progressive Web App (PWA)
+- HTML5, CSS, JavaScript
 - Chuẩn SEO – Tối ưu hóa từ khóa, tốc độ, cấu trúc HTML
 
 ---
