@@ -1,0 +1,20 @@
+{
+  "name": "PhanTram.free.nf",
+  "short_name": "PhanTram",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e6dcc",
+  "icons": [
+    {
+      "src": "/uploads/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/uploads/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Công cụ Tính Phần Trăm Trực Tuyến - Phần Trăm Online</title>
+    <meta name="geo.region" content="VN" />
+    <meta name="geo.placename" content="Vietnam" />
+    <meta name="language" content="vi" />
+<meta name="google-site-verification" content="vBgaD3cY3zBM3wLjN2dU7Po8_NbqAWJQ7850lD796DU" />
+    <!-- SEO cơ bản -->
+    <meta
+      name="description"
+      content="Phần Trăm Online - Công cụ tính phần trăm trực tuyến miễn phí, giúp tính tỷ lệ phần trăm, tăng/giảm giá trị, và so sánh số liệu nhanh chóng, chính xác."
+    />
+    <meta
+      name="keywords"
+      content="tính phần trăm, công cụ tính phần trăm, tỷ lệ phần trăm, máy tính phần trăm online, tính toán online, công cụ miễn phí"
+    />
+    <meta name="author" content="Phần Trăm Online" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Công cụ Tính Phần Trăm Trực Tuyến - Phần Trăm Online"
+    />
+    <meta
+      property="og:description"
+      content="Công cụ tính phần trăm online miễn phí, hỗ trợ tính tỷ lệ phần trăm, tăng/giảm giá trị và so sánh số liệu dễ dàng, nhanh chóng."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://phantram.free.nf/" />
+    <meta
+      property="og:image"
+      content="https://phantram.free.nf/uploads/thumbai.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Hình ảnh biểu tượng công cụ tính phần trăm online"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Công cụ Tính Phần Trăm Trực Tuyến - Phần Trăm Online"
+    />
+    <meta
+      name="twitter:description"
+      content="Tính phần trăm nhanh chóng với công cụ online miễn phí, dễ sử dụng."
+    />
+    <meta
+      name="twitter:image"
+      content="https://phantram.free.nf/uploads/thumbai.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Hình ảnh công cụ tính phần trăm trực tuyến"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/uploads/favicon-96x96.png"
+      sizes="96x96"
+      alt="Biểu tượng Phần Trăm Online"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/uploads/favicon.svg"
+      alt="Biểu tượng SVG Phần Trăm Online"
+    />
+    <link
+      rel="shortcut icon"
+      href="/uploads/favicon.ico"
+      alt="Biểu tượng Phần Trăm Online"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/uploads/apple-touch-icon.png"
+      alt="Biểu tượng Apple Phần Trăm Online"
+    />
+    <meta name="apple-mobile-web-app-title" content="phantram.free.nf" />
+
+    <!-- SweetAlert -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.js"
+      defer
+    ></script>
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+    </noscript>
+    <link
+      rel="preload"
+      href="/fonts/Roboto-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="canonical" href="https://phantram.free.nf/" />
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <style>
+    @font-face {
+      font-family: "Roboto";
+      src: url("/fonts/Roboto-Regular.woff2") format("woff2"); /* ❌ sai: bạn đang để 'truetype' */
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background-color: #c3d7f0;
+      color: #000000;
+    }
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin: 1rem 0;
+      color: #000000;
+    }
+
+    a {
+      color: #0000ee;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+    header {
+      background-color: #1e6dcc;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+    .logo .circle {
+      background-color: white;
+      color: #1e6dcc;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+    }
+    .logo .yellow {
+      color: #ffffff;
+    }
+    .gt_switcher_wrapper {
+      top: 10px !important;
+      right: 0px !important;
+    }
+    nav {
+      background-color: #d1e1f5;
+      border-bottom: 1px solid #1e6dcc;
+      font-size: 14px;
+      display: flex;
+      padding-left: 16px;
+    }
+    nav a,
+    nav span {
+      padding: 10px 12px 8px 0;
+      line-height: 1;
+      display: inline-block;
+    }
+    nav span {
+      font-weight: bold;
+      color: #000000;
+      font-size: 20px;
+    }
+    nav a {
+      font-weight: bold;
+      font-size: 19px;
+      color: black;
+      text-decoration: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: 16px auto 40px auto;
+    }
+    .info-box {
+      background-color: #e3ecf9;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 14px;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    form {
+      background-color: white;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    form p {
+      font-size: 12px;
+      font-style: italic;
+      margin: 0 0 8px 0;
+      color: #555;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 14px;
+      gap: 6px;
+    }
+    input {
+      height: 40px;
+    }
+    input[type="text"] {
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      padding: 6px 8px;
+      font-size: 14px;
+      width: 200px;
+      max-width: 100%;
+    }
+    input[readonly] {
+      background-color: #f5f5f5;
+    }
+    select {
+      font-weight: 700;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      background-color: white;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 100px;
+      max-width: 100%;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    footer {
+      background-color: #0a4ea0;
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 14px;
+    }
+    @media (max-width: 480px) {
+      main {
+        margin: 12px 12px 32px 12px;
+        padding: 0;
+      }
+      .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      input[type="text"],
+      select {
+        width: 100%;
+      }
+    }
+    header .container,
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      gap: 20px;
+    }
+    .shortcut {
+      background-color: #eef2fb;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 10px 16px;
+      font-size: 14px;
+      line-height: 25px;
+      border-radius: 5px;
+      margin-bottom: 30px;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .faq {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #eef2fb;
+      border-radius: 5px;
+    }
+
+    .faq h2 {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin: 1rem 0;
+      color: #333;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      position: relative;
+      font-size: 15px;
+      margin: 0.5rem 0;
+      padding-right: 1.5rem;
+      font-weight: normal;
+    }
+
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .faq-question.active::after {
+      content: "–";
+    }
+
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding-top: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer.show {
+      max-height: 500px;
+      opacity: 1;
+      padding-top: 10px;
+    }
+    /* Star rating CSS từ Uiverse.io */
+    .radio-input {
+      display: flex;
+      justify-content: center;
+      scale: 0.2; /* Bạn có thể chỉnh nhỏ/lớn tùy ý */
+      transform: rotate(180deg);
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .star {
+      margin: 1em;
+      appearance: none;
+      --color: white;
+      border-left: 6.472em solid transparent;
+      border-right: 6.472em solid transparent;
+      border-bottom: 4em solid var(--color);
+      transform: rotate(0deg);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .star:before,
+    .star:after {
+      content: "";
+      border-left: 6.472em solid transparent;
+      border-right: 6.472em solid transparent;
+      border-top: 4em solid var(--color);
+      position: absolute;
+      left: -6.472em;
+    }
+
+    .star:before {
+      transform: rotate(108deg);
+    }
+
+    .star:after {
+      transform: rotate(253deg);
+    }
+
+    .radio-input > .star:hover ~ .star,
+    .radio-input > .star:hover,
+    .radio-input > .star:checked ~ .star,
+    .radio-input > .star:checked {
+      --color: yellow;
+    }
+
+    .radio-input > .star:checked {
+      animation: rotate 0.5s linear forwards;
+      transition: transform 0.3s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        scale: 1.5;
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+  </style>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <div class="circle">%</div>
+          <span>PhanTram<span class="yellow">.free.nf</span></span>
+        </div>
+      </div>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="#form1">Tính phần trăm</a>
+        <!-- <a href="#faq">Hỏi đáp về phần trăm</a> -->
+        <a href="https://thangrai.github.io/calc/">Máy Tính Online</a>
+      </div>
+    </nav>
+
+    <main>
+      <h1>Công cụ Tính Phần Trăm Trực Tuyến Miễn Phí</h1>
+
+      <div class="info-box" role="region" aria-live="polite">
+        <p>
+          Phần Trăm Online (<a href="https://phantram.free.nf"
+            >phantram.free.nf</a
+          >) là công cụ tính tỷ lệ phần trăm trực tuyến miễn phí, giúp bạn thực
+          hiện các phép tính phần trăm nhanh chóng, chính xác. Tính toán tỷ lệ,
+          tăng/giảm giá trị, hoặc so sánh số liệu chỉ trong vài giây.
+          <a href="#faq">Xem thêm câu hỏi thường gặp</a> để hiểu rõ cách sử
+          dụng.
+        </p>
+      </div>
+
+      <!-- 1. Tính phần trăm của một giá trị -->
+      <form id="form1">
+        <p><i>Tính tỷ lệ phần trăm của một giá trị.</i></p>
+        <div class="form-row">
+          <label for="percent1" class="sr-only">Tỷ lệ phần trăm</label>
+          <input type="text" id="percent1" placeholder="%" />
+          <span>% của</span>
+
+          <label for="value1" class="sr-only">Giá trị gốc</label>
+          <input type="text" id="value1" placeholder="Giá trị" />
+          <span>=</span>
+
+          <label for="result1" class="sr-only">Kết quả</label>
+          <input type="text" id="result1" readonly />
+        </div>
+      </form>
+
+      <!-- 2. Tính một số là bao nhiêu % của số khác -->
+      <form id="form2">
+        <p><i>Làm thế nào để tính một số là bao nhiêu % của số khác.</i></p>
+        <div class="form-row">
+          <label for="value2" class="sr-only">Số cần tính</label>
+          <input type="text" id="value2" placeholder="Số" />
+          <span>là bao nhiêu % của</span>
+
+          <label for="value3" class="sr-only">Số so sánh</label>
+          <input type="text" id="value3" placeholder="Số khác" />
+          <span>=</span>
+
+          <label for="result2" class="sr-only">Kết quả phần trăm</label>
+          <input type="text" id="result2" readonly />
+          <span>%</span>
+        </div>
+      </form>
+
+      <!-- 3. Tính phần trăm tăng/giảm -->
+      <form id="form3">
+        <p><i>Tính tỷ lệ phần trăm tăng hoặc giảm của giá trị.</i></p>
+        <div class="form-row">
+          <label for="oldValue" class="sr-only">Giá trị cũ</label>
+          <input type="text" id="oldValue" placeholder="Giá trị cũ" />
+          <span>-</span>
+
+          <label for="newValue" class="sr-only">Giá trị mới</label>
+          <input type="text" id="newValue" placeholder="Giá trị mới" />
+          <span>=</span>
+
+          <label for="result3" class="sr-only">Phần trăm thay đổi</label>
+          <input type="text" id="result3" readonly />
+          <span>%</span>
+        </div>
+      </form>
+
+      <!-- 4. Tăng hoặc giảm phần trăm -->
+      <form id="form4">
+        <p><i>Tăng hoặc giảm một giá trị theo tỷ lệ phần trăm cụ thể.</i></p>
+        <div class="form-row">
+          <label for="percent2" class="sr-only">Tỷ lệ %</label>
+          <input type="text" id="percent2" placeholder="%" />
+          <span>%</span>
+
+          <label for="action" class="sr-only">Loại hành động</label>
+          <select id="action">
+            <option value="tang" selected>tăng</option>
+            <option value="giam">giảm</option>
+          </select>
+          <span>của</span>
+
+          <label for="value4" class="sr-only">Giá trị gốc</label>
+          <input type="text" id="value4" placeholder="Giá trị" />
+          <span>=</span>
+
+          <label for="result4" class="sr-only">Kết quả</label>
+          <input type="text" id="result4" readonly />
+        </div>
+      </form>
+
+      <!-- 5. Số X là Y% của Z -->
+      <form id="form5">
+        <p><i>Số X là Y% của số Z. Tìm Z?</i></p>
+        <div class="form-row">
+          <span>Số</span>
+          <label for="valueX" class="sr-only">Giá trị X</label>
+          <input type="text" id="valueX" placeholder="X" />
+          <span>là</span>
+
+          <label for="percentY" class="sr-only">Phần trăm Y</label>
+          <input type="text" id="percentY" placeholder="Y%" />
+          <span>% của số</span>
+
+          <label for="result5" class="sr-only">Kết quả Z</label>
+          <input type="text" id="result5" readonly />
+        </div>
+      </form>
+    </main>
+
+    <div class="shortcut" role="main">
+      <p>
+        Phần trăm nghĩa là "so với 100". Trong toán học, một phần trăm là tỷ số
+        thể hiện dưới dạng phân số có mẫu số là 100. Ký hiệu thường dùng là "%".
+        Ví dụ, 20% (đọc là "hai mươi phần trăm") tương đương với 20/100, tức là
+        0,2. <a href="#faq">Tìm hiểu thêm về cách tính phần trăm</a>.
+      </p>
+      <p>
+        Công cụ tính phần trăm thường được dùng để biểu thị độ lớn tương đối của
+        một lượng so với một lượng khác. Ví dụ, nếu một sản phẩm giá 40.000₫
+        tăng lên 2.400₫, tỷ lệ tăng là 2.400 / 40.000 = 0,06, tức 6%. Công cụ
+        này giúp bạn tính toán nhanh các phép tính như vậy.
+      </p>
+      <p>
+        Tỷ lệ phần trăm có thể biểu diễn các số lớn hơn 100% hoặc nhỏ hơn 0%. Ví
+        dụ, 111% tương đương 1,11, và -0.35% là -0,0035.
+        <a href="#form4">Thử tính tăng/giảm phần trăm ngay</a>.
+      </p>
+    </div>
+
+    <section class="faq" id="faq">
+      <h2>Câu Hỏi Thường Gặp Về Tính Phần Trăm</h2>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Làm thế nào để tính phần trăm nhanh chóng?
+        </h3>
+        <p class="faq-answer">
+          Sử dụng <a href="#form1">công cụ tính phần trăm</a> của chúng tôi, bạn
+          chỉ cần nhập giá trị và tỷ lệ phần trăm, hệ thống sẽ tự động hiển thị
+          kết quả chính xác trong vài giây.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Có cần đăng ký để sử dụng công cụ tính phần trăm không?
+        </h3>
+        <p class="faq-answer">
+          Không cần đăng ký.
+          <a href="https://phantram.free.nf">Phần Trăm Online</a> cung cấp công
+          cụ tính tỷ lệ phần trăm hoàn toàn miễn phí và không yêu cầu tài khoản.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Làm sao để tính phần trăm giảm giá?
+        </h3>
+        <p class="faq-answer">
+          Vào mục <a href="#form4">“giảm X% của Y”</a>, nhập phần trăm giảm và
+          giá gốc, công cụ sẽ hiển thị giá trị sau khi giảm ngay lập tức.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Cách tính phần trăm tăng giá trị?
+        </h3>
+        <p class="faq-answer">
+          Chọn <a href="#form4">“tăng X% của Y”</a> trong công cụ, nhập tỷ lệ
+          phần trăm và giá trị gốc, kết quả sẽ được hiển thị tức thì.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Công cụ có hỗ trợ tính phần trăm trên điện thoại không?
+        </h3>
+        <p class="faq-answer">
+          Có, <a href="https://phantram.free.nf">Phần Trăm Online</a> được tối
+          ưu cho cả điện thoại, máy tính bảng và máy tính, đảm bảo trải nghiệm
+          mượt mà mọi lúc mọi nơi.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Phần trăm có thể âm hoặc lớn hơn 100% không?
+        </h3>
+        <p class="faq-answer">
+          Có, phần trăm có thể âm (ví dụ: -5% biểu thị giảm 5%) hoặc lớn hơn
+          100% (ví dụ: 150% là 1,5 lần). <a href="#form1">Thử tính ngay</a>.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question" aria-expanded="false">
+          Công cụ này có chính xác không?
+        </h3>
+        <p class="faq-answer">
+          Công cụ sử dụng công thức toán học chuẩn, đảm bảo kết quả chính xác.
+          Bạn có thể kiểm tra bằng
+          <a href="https://thangrai.github.io/calc/">Máy Tính Online</a>.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2025
+        <a href="https://levanthang.free.nf" target="_blank">Thắng Rai</a> -
+        Công cụ tính phần trăm trực tuyến.
+      </p>
+      <p></p>
+
+      <div class="rating-section">
+        <div class="radio-input">
+  <input
+    value="1"
+    name="value-radio"
+    id="value-1"
+    type="radio"
+    class="star s1"
+    onclick="handleRating(1)"
+  />
+  <label for="value-1" class="visually-hidden">1 sao</label>
+
+  <input
+    value="2"
+    name="value-radio"
+    id="value-2"
+    type="radio"
+    class="star s2"
+    onclick="handleRating(2)"
+  />
+  <label for="value-2" class="visually-hidden">2 sao</label>
+
+  <input
+    value="3"
+    name="value-radio"
+    id="value-3"
+    type="radio"
+    class="star s3"
+    onclick="handleRating(3)"
+  />
+  <label for="value-3" class="visually-hidden">3 sao</label>
+
+  <input
+    value="4"
+    name="value-radio"
+    id="value-4"
+    type="radio"
+    class="star s4"
+    onclick="handleRating(4)"
+  />
+  <label for="value-4" class="visually-hidden">4 sao</label>
+
+  <input
+    value="5"
+    name="value-radio"
+    id="value-5"
+    type="radio"
+    class="star s5"
+    onclick="handleRating(5)"
+  />
+  <label for="value-5" class="visually-hidden">5 sao</label>
+</div>
+
+      </div>
+    </footer>
+
+    <!-- Gỡ thông số i=1 -->
+    <script>
+      if (window.location.search.includes("i=1")) {
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+      }
+    </script>
+
+    <script src="script.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Làm thế nào để tính phần trăm nhanh chóng?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sử dụng công cụ tính phần trăm của chúng tôi, bạn chỉ cần nhập giá trị và tỷ lệ phần trăm, hệ thống sẽ tự động cho kết quả."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Có cần đăng ký để sử dụng công cụ tính phần trăm không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Không. Tất cả tính năng đều miễn phí và không cần tài khoản."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Làm sao để tính phần trăm giảm giá?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bạn chọn 'giảm', nhập phần trăm cần giảm và giá trị gốc, hệ thống sẽ tính kết quả."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cách tính phần trăm tăng giá trị?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chọn 'tăng', nhập tỷ lệ phần trăm và giá trị gốc, công cụ sẽ hiển thị kết quả."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Công cụ có hỗ trợ tính phần trăm trên điện thoại không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Có. Website được thiết kế tương thích với điện thoại, máy tính bảng và desktop."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Phần trăm có thể âm hoặc lớn hơn 100% không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Có, phần trăm có thể âm (ví dụ: -5%) hoặc lớn hơn 100% (ví dụ: 150%)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Công cụ này có chính xác không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Công cụ sử dụng công thức toán học chuẩn, đảm bảo kết quả chính xác."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Phần Trăm Online",
+        "url": "https://phantram.free.nf/",
+        "applicationCategory": "Calculator",
+        "description": "Phần Trăm Online là công cụ tính tỷ lệ phần trăm miễn phí, hỗ trợ tính phần trăm của số, tăng/giảm giá trị, phần trăm thay đổi và hơn thế nữa.",
+        "browserRequirements": "Requires JavaScript",
+        "operatingSystem": "All",
+        "inLanguage": "vi",
+        "author": {
+          "@type": "Person",
+          "name": "Thắng Rai",
+          "url": "https://levanthang.free.nf"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "VND"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "1234"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang chủ",
+            "item": "https://phantram.free.nf/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tính Phần Trăm",
+            "item": "https://phantram.free.nf/#form1"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Hỏi Đáp",
+            "item": "https://phantram.free.nf/#faq"
+          }
+        ]
+      }
+    </script>
+    <script>
+      let gtagLoaded = false;
+
+      function loadGtag() {
+        if (gtagLoaded) return;
+        gtagLoaded = true;
+
+        const script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-45SS7BBM7H";
+        script.async = true;
+        document.head.appendChild(script);
+
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-45SS7BBM7H", { transport_type: "beacon" });
+        };
+      }
+
+      window.addEventListener("scroll", loadGtag, { once: true });
+      window.addEventListener("mousemove", loadGtag, { once: true });
+      window.addEventListener("touchstart", loadGtag, { once: true });
+    </script>
+  </body>
+</html>
